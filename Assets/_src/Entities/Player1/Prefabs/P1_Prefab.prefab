@@ -371,6 +371,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3018720586628133803, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
+      propertyPath: m_Name
+      value: Player1_Body
+      objectReference: {fileID: 0}
     - target: {fileID: 3145262460232535540, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
       propertyPath: m_ForceAppPointDistance
       value: 0.15
@@ -423,6 +427,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3311311803080157842, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
   m_PrefabInstance: {fileID: 5977435830869525083}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5977435830682964842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9151379028749134025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b26b15121068bec42b693f9742b641b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5977435830682964847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,15 +461,3 @@ MonoBehaviour:
     motor: 1
     steering: 1
     reverseTurn: 0
---- !u!114 &5977435830682964842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9151379028749134025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b26b15121068bec42b693f9742b641b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
