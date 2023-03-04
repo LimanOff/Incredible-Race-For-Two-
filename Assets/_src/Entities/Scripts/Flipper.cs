@@ -5,17 +5,31 @@ using UnityEngine;
 public class Flipper : MonoBehaviour
 {
     private Rigidbody _rb;
+    private string _playerName;
 
     private void Start() 
     {
         _rb = GetComponent<Rigidbody>();
+
+        _playerName = gameObject.name;
     }
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.R))
+        if(_playerName == "Player2")
         {
-            FlipOver();
+            if(Input.GetKey(KeyCode.R))
+            {
+                FlipOver();
+            }
+        }
+
+        if(_playerName == "Player1")
+        {
+            if(Input.GetKey(KeyCode.P))
+            {
+                FlipOver();
+            }
         }
     }
 
