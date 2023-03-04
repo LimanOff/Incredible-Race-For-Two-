@@ -16,7 +16,7 @@ public class Flipper : MonoBehaviour
 
     void Update()
     {
-        if(_playerName == "Player2")
+        if(_playerName == "Player1")
         {
             if(Input.GetKey(KeyCode.R))
             {
@@ -24,7 +24,7 @@ public class Flipper : MonoBehaviour
             }
         }
 
-        if(_playerName == "Player1")
+        if(_playerName == "Player2")
         {
             if(Input.GetKey(KeyCode.P))
             {
