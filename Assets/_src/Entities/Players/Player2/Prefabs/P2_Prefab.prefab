@@ -106,7 +106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5359547279232644760}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.44574833, y: 1.8956299, z: -37.09498}
+  m_LocalPosition: {x: 0.44574833, y: 1.8956299, z: -37.09497}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -178,7 +178,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5359547279498326081}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.44574833, y: 1.8956299, z: -37.09498}
+  m_LocalPosition: {x: 0.44574833, y: 1.8956299, z: -37.09497}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -407,9 +407,24 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6708706858096201184, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
   m_PrefabInstance: {fileID: 5359547279826685803}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4136184519812199068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8288384950464101879, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
+  m_PrefabInstance: {fileID: 5359547279826685803}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4720796599738785612 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 856612622373900327, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
+  m_PrefabInstance: {fileID: 5359547279826685803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!146 &4957361307229787576 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 1057494946909100755, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
+  m_PrefabInstance: {fileID: 5359547279826685803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!146 &7045556512851427999 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 3145262460232535540, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
   m_PrefabInstance: {fileID: 5359547279826685803}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &7463814029767452153 stripped
@@ -448,9 +463,21 @@ MonoBehaviour:
     leftWheelMesh: {fileID: 1691931297468252811}
     rightWheel: {fileID: 643535455014380810}
     rightWheelMesh: {fileID: 4720796599738785612}
-    motor: 1
+    motor: 0
     steering: 1
     reverseTurn: 0
+  - leftWheel: {fileID: 7045556512851427999}
+    leftWheelMesh: {fileID: 4136184519812199068}
+    rightWheel: {fileID: 4957361307229787576}
+    rightWheelMesh: {fileID: 7797220291101821788}
+    motor: 1
+    steering: 0
+    reverseTurn: 0
+--- !u!1 &7797220291101821788 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2762295717202265143, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
+  m_PrefabInstance: {fileID: 5359547279826685803}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7845019845911248707 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2792218741957914664, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}

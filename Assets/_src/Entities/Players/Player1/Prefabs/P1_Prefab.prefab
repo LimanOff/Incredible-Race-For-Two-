@@ -107,7 +107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5977435830553953887}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.44574833, y: 1.8956299, z: -37.09497}
+  m_LocalPosition: {x: 0.44574833, y: 1.8956299, z: -37.09498}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -250,7 +250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5977435830931155026}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.44574833, y: 1.8956299, z: -37.09497}
+  m_LocalPosition: {x: 0.44574833, y: 1.8956299, z: -37.09498}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -407,9 +407,24 @@ WheelCollider:
   m_CorrespondingSourceObject: {fileID: 4795950753765878369, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
   m_PrefabInstance: {fileID: 5977435830869525083}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2446118725111300012 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8288384950464101879, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
+  m_PrefabInstance: {fileID: 5977435830869525083}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6419690588846543484 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 856612622373900327, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
+  m_PrefabInstance: {fileID: 5977435830869525083}
+  m_PrefabAsset: {fileID: 0}
+--- !u!146 &6654319390435186824 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 1057494946909100755, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
+  m_PrefabInstance: {fileID: 5977435830869525083}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7727426338001202349 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4163942240364048118, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
   m_PrefabInstance: {fileID: 5977435830869525083}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8380048890643968627 stripped
@@ -420,6 +435,11 @@ Transform:
 --- !u!146 &8594788976184392413 stripped
 WheelCollider:
   m_CorrespondingSourceObject: {fileID: 2716459193614891142, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
+  m_PrefabInstance: {fileID: 5977435830869525083}
+  m_PrefabAsset: {fileID: 0}
+--- !u!146 &8742095718222892975 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 3145262460232535540, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
   m_PrefabInstance: {fileID: 5977435830869525083}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &9151379028749134025 stripped
@@ -458,6 +478,13 @@ MonoBehaviour:
     leftWheelMesh: {fileID: 1147858666912124859}
     rightWheel: {fileID: 1187470337647896634}
     rightWheelMesh: {fileID: 6419690588846543484}
-    motor: 1
+    motor: 0
     steering: 1
+    reverseTurn: 0
+  - leftWheel: {fileID: 8742095718222892975}
+    leftWheelMesh: {fileID: 2446118725111300012}
+    rightWheel: {fileID: 6654319390435186824}
+    rightWheelMesh: {fileID: 7727426338001202349}
+    motor: 1
+    steering: 0
     reverseTurn: 0
