@@ -456,8 +456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c73e278ff2d2bc4b9b7e87a18cf892a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxMotorTorque: 800
-  maxSteeringAngle: 30
+  maxMotorTorque: 1800
+  maxSteeringAngle: 45
   truck_Infos:
   - leftWheel: {fileID: 8057541047455676397}
     leftWheelMesh: {fileID: 1691931297468252811}
@@ -469,15 +469,10 @@ MonoBehaviour:
   - leftWheel: {fileID: 7045556512851427999}
     leftWheelMesh: {fileID: 4136184519812199068}
     rightWheel: {fileID: 4957361307229787576}
-    rightWheelMesh: {fileID: 7797220291101821788}
+    rightWheelMesh: {fileID: 8334373717834441117}
     motor: 1
     steering: 0
     reverseTurn: 0
---- !u!1 &7797220291101821788 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2762295717202265143, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
-  m_PrefabInstance: {fileID: 5359547279826685803}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7845019845911248707 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2792218741957914664, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
@@ -486,5 +481,10 @@ Transform:
 --- !u!146 &8057541047455676397 stripped
 WheelCollider:
   m_CorrespondingSourceObject: {fileID: 2716459193614891142, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
+  m_PrefabInstance: {fileID: 5359547279826685803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8334373717834441117 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4163942240364048118, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
   m_PrefabInstance: {fileID: 5359547279826685803}
   m_PrefabAsset: {fileID: 0}

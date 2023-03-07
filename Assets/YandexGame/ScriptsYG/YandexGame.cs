@@ -5,8 +5,7 @@ using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine.UI;
-//using System.Collections;
-//using System.ComponentModel;
+using Newtonsoft.Json;
 
 namespace YG
 {
@@ -130,12 +129,6 @@ namespace YG
                     _photoSize = "large";
 
                 _AuthorizationCheck();
-                _RequestingEnvironmentData();
-
-#if !UNITY_EDITOR
-                if (infoYG.sitelock)
-                    Invoke("SiteLock", 1);
-#endif
             }
         }
 
@@ -207,7 +200,7 @@ namespace YG
         {
             Message("Save Local");
 #if !UNITY_EDITOR
-            SaveToLocalStorage("savesData", JsonUtility.ToJson(savesData));
+            SaveToLocalStorage("savesData", JsonConvert.SerializeObject(savesData)); //SaveToLocalStorage("savesData", JsonUtility.ToJson(savesData));
 #endif
         }
 
@@ -244,7 +237,7 @@ namespace YG
 
             if (!HasKey("savesData"))
                 ResetSaveProgress();
-            else savesData = JsonUtility.FromJson<SavesYG>(LoadFromLocalStorage("savesData"));
+            else savesData = JsonConvert.DeserializeObject<SavesYG>("savesData");  //JsonUnity.FromJson<SavesYG>(LoadFromLocalStorage("savesData"));
 
             AfterLoading();
         }
@@ -335,51 +328,6 @@ namespace YG
 
         #endregion Player Data        
 
-        #region SiteLock
-        [DllImport("__Internal")]
-        private static extern string GetURLFromPage();
-
-        void SiteLock()
-        {
-            try
-            {
-                string urlOrig = GetURLFromPage();
-
-                string localhost = "http://localhost";
-                if (urlOrig.Remove(localhost.Length) != localhost)
-                {
-                    string plaedLinks = urlOrig.Remove(0, 15);
-                    plaedLinks = plaedLinks.Remove(0, EnvironmentData.domain.Length + 1);
-                    string[] plaedSplit = plaedLinks.Split('/');
-                    plaedLinks = $"{plaedSplit[0]}/{plaedSplit[1]}";
-
-                    string urlCheck = $"https://yandex.{EnvironmentData.domain}/{plaedLinks}/{EnvironmentData.appID}";
-
-                    if (urlOrig.Remove(urlCheck.Length) != urlCheck)
-                    {
-                        Crash();
-                    }
-                }
-            }
-            catch
-            {
-                Crash();
-            }
-        }
-
-        void Crash()
-        {
-            GameObject errMessage = new GameObject { name = "siteLock" };
-            errMessage.AddComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
-            errMessage.AddComponent<GraphicRaycaster>();
-            errMessage.AddComponent<RawImage>();
-
-            Time.timeScale = 0;
-            AudioListener.volume = 0;
-            AudioListener.pause = true;
-        }
-        #endregion SiteLock
-
 
         // Sending messages
 
@@ -444,7 +392,7 @@ namespace YG
         public static void SaveCloud()
         {
             Message("Save Cloud");
-            SaveYG(JsonUtility.ToJson(savesData), Instance.infoYG.flush);
+            SaveYG(JsonConvert.SerializeObject(savesData), Instance.infoYG.flush); //.ToJson(savesData), Instance.infoYG.flush);
         }
 
         [DllImport("__Internal")]
@@ -907,7 +855,7 @@ namespace YG
 
         public void SetAuthorization(string data)
         {
-            jsonAuth = JsonUtility.FromJson<JsonAuth>(data);
+            jsonAuth = JsonConvert.DeserializeObject<JsonAuth>(data); //.FromJson<JsonAuth>(data);
 
             if (jsonAuth.playerAuth.ToString() == "resolved")
             {
@@ -926,6 +874,7 @@ namespace YG
 
             Message("Authorization - " + jsonAuth.playerAuth.ToString());
 
+            _RequestingEnvironmentData();
             LoadProgress();
 
 #if !UNITY_EDITOR
@@ -963,7 +912,7 @@ namespace YG
                 data = data.Replace('\u0002'.ToString(), @"\");
                 try
                 {
-                    cloudData = JsonUtility.FromJson<SavesYG>(data);
+                    cloudData = JsonConvert.DeserializeObject<SavesYG>(data); //JsonUtility.FromJson<SavesYG>(data);
                 }
                 catch (Exception e)
                 {
@@ -977,7 +926,7 @@ namespace YG
             {
                 try
                 {
-                    localData = JsonUtility.FromJson<SavesYG>(LoadFromLocalStorage("savesData"));
+                    localData = JsonConvert.DeserializeObject<SavesYG>(LoadFromLocalStorage("savesData")); //JsonUtility.FromJson<SavesYG>(LoadFromLocalStorage("savesData"));
                 }
                 catch (Exception e)
                 {
@@ -1019,7 +968,7 @@ namespace YG
                 Message("Local Saves - " + localDataState);
                 Message("Cloud Saves - Broken! Data Recovering...");
                 ResetSaveProgress();
-                savesData = JsonUtility.FromJson<SavesYG>(data);
+                savesData = JsonConvert.DeserializeObject<SavesYG>(data); //JsonUtility.FromJson<SavesYG>(data);
                 Message("Cloud Saves Partially Restored!");
                 AfterLoading();
             }
@@ -1028,7 +977,7 @@ namespace YG
                 Message("Cloud Saves - " + cloudDataState);
                 Message("Local Saves - Broken! Data Recovering...");
                 ResetSaveProgress();
-                savesData = JsonUtility.FromJson<SavesYG>(LoadFromLocalStorage("savesData"));
+                savesData = JsonConvert.DeserializeObject<SavesYG>(LoadFromLocalStorage("savesData")); //JsonUtility.FromJson<SavesYG>(LoadFromLocalStorage("savesData"));
                 Message("Local Saves Partially Restored!");
                 AfterLoading();
             }
@@ -1199,7 +1148,7 @@ namespace YG
         #region Environment Data
         public void SetEnvironmentData(string data)
         {
-            EnvironmentData = JsonUtility.FromJson<JsonEnvironmentData>(data);
+            EnvironmentData = JsonConvert.DeserializeObject<JsonEnvironmentData>(data); //JsonUtility.FromJson<JsonEnvironmentData>(data);
         }
         #endregion Environment Data
 
@@ -1224,7 +1173,7 @@ namespace YG
 
         public void LeaderboardEntries(string data)
         {
-            jsonLB = JsonUtility.FromJson<JsonLB>(data);
+            jsonLB = JsonConvert.DeserializeObject<JsonLB>(data); //JsonUtility.FromJson<JsonLB>(data);
 
             rank = jsonLB.rank;
             photo = jsonLB.photo;
@@ -1254,7 +1203,7 @@ namespace YG
         public void PaymentsEntries(string data)
         {
 #if !UNITY_EDITOR
-            PaymentsData = JsonUtility.FromJson<JsonPayments>(data);
+            PaymentsData = JsonConvert.DeserializeObject<JsonPayments>(data); //JsonUtility.FromJson<JsonPayments>(data);
 #else
             PaymentsData.id = new string[3];
             PaymentsData.id[0] = "test";

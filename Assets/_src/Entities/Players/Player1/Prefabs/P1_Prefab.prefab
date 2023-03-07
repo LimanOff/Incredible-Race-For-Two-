@@ -471,8 +471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c73e278ff2d2bc4b9b7e87a18cf892a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxMotorTorque: 800
-  maxSteeringAngle: 30
+  maxMotorTorque: 1800
+  maxSteeringAngle: 45
   truck_Infos:
   - leftWheel: {fileID: 8594788976184392413}
     leftWheelMesh: {fileID: 1147858666912124859}
