@@ -57,29 +57,17 @@ public class Dot_Truck_Controller : MonoBehaviour {
 		 _motor = maxMotorTorque * Input.GetAxis("Vertical_ARROWS");
 		 _steering = maxSteeringAngle * Input.GetAxis("Horizontal_ARROWS");
 		}
-
-		if(_motor == 0)
-		{
-			_brakeTorque = maxMotorTorque;
-		}
-		else
+		
+		if((_rb.velocity.magnitude < 0.1) & _motor != 0)
 		{
 			_brakeTorque = 0;
 		}
-
-
-		 if (_rb.velocity.magnitude < 0.1 & !(Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow)))
+		
+		if (_motor == 0)
 		{
-			Debug.Log("Игрок стоит");
+			_brakeTorque = maxMotorTorque;
 		}
-		else if (_rb.velocity.magnitude > 0 & Input.GetKey(KeyCode.DownArrow))
-		{
-			Debug.Log("Игрок едёт назад");
-		}
-		else if (_rb.velocity.magnitude > 0 & Input.GetKey(KeyCode.UpArrow))
-		{
-			Debug.Log("Игрок едёт вперед");
-		}
+		
 
 		foreach (Dot_Truck truck_Info in truck_Infos)
 		{
