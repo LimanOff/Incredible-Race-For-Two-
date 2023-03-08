@@ -350,6 +350,7 @@ PlayerSettings:
     BANNER_STATIC_2: 
     METRIC: 
     OFF_ADS_BEFORE_LOADING_GAME: 
+    PIXEL_RATIO_MOBILE: 
   mobileMTRendering:
     Android: 1
     iPhone: 1
