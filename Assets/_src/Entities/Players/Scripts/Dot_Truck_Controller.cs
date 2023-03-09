@@ -58,7 +58,7 @@ public class Dot_Truck_Controller : MonoBehaviour {
 		 _steering = maxSteeringAngle * Input.GetAxis("Horizontal_ARROWS");
 		}
 		
-		if((_rb.velocity.magnitude < 0.1) & _motor != 0)
+		if((_rb.velocity.magnitude < 0.1) || _motor != 0)
 		{
 			_brakeTorque = 0;
 		}
