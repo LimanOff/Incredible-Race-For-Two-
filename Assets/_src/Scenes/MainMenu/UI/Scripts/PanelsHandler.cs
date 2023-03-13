@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PanelsHandler : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] _panels;
-
-    private void OnEnable()
-    {
-        ShowPanel("MainPanel");
-    }  
-
     private void ShowPanel(string NameOfPanelThatShouldBeShown)
     {
         for(int index = 0; index < _panels.Length; index++)
@@ -33,7 +29,7 @@ public class PanelsHandler : MonoBehaviour
         panel.Deactivate();
     }
 
-    public void BackToMainMenu()
+    public void BackToMainMenuPanel()
     {
         ShowPanel("MainPanel");
     }
@@ -48,8 +44,25 @@ public class PanelsHandler : MonoBehaviour
         ShowPanel("LevelsPanel");
     }
 
-    public void StartGame()
+    public void LoadNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void LoadLevel()
+    {
+        int levelNumber = Convert.ToInt32(EventSystem.current.currentSelectedGameObject.name);
+
+        SceneManager.LoadScene($"{levelNumber}_Level");
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene($"MainMenu");
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

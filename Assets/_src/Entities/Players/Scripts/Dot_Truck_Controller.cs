@@ -24,13 +24,14 @@ public class Dot_Truck_Controller : MonoBehaviour {
 	private float _brakeTorque;
 
 	private string _playerName;
-	public Rigidbody _rb;
+	private Rigidbody _rb;
 
 	public List<Dot_Truck> truck_Infos;
 
 	private void Start() 
 	{
 		_playerName = gameObject.name;
+		_rb = GetComponent<Rigidbody>();
 	}
 	public void VisualizeWheel(Dot_Truck wheelPair)
 	{

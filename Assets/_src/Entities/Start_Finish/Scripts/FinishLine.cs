@@ -3,12 +3,26 @@ using UnityEngine;
 
 public class FinishLine : MonoBehaviour
 {
-    public static Action OnPlayerTouchFinishLine;
+    
+    [SerializeField] private GameObject P1_WinPanel;
+    [SerializeField] private GameObject P2_WinPanel;    
+
+    private void Start() 
+    {
+        P1_WinPanel.Deactivate();
+        P2_WinPanel.Deactivate();
+    }
 
     private void OnTriggerEnter(Collider other) 
     {
-        Debug.Log($"{other.gameObject.transform.parent} WIN!");
+        if(other.gameObject.transform.parent.name == "Player1")
+        {
+            P1_WinPanel.Activate();
+        }
 
-        OnPlayerTouchFinishLine?.Invoke();
+        if(other.gameObject.transform.parent.name == "Player2")
+        {
+            P2_WinPanel.Activate();
+        }
     }
 }
